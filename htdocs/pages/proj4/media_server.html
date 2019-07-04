@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Home Media Server</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/portfolio-item.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="../../index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="../../index.html#services">Projects</a>
+                    </li>
+                    <li>
+                        <a href="../../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Home Media Server
+                    <small></small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-responsive" src="images/configuring_frontpage.jpg" alt="">
+            </div>
+
+                <h3>Project Description:</h3>
+                <p>This project was something I set up out of necessity. I found myself going to a lot of trouble to watch video content that didn't come from Netflix. This often involved hooking up a laptop to my TV and moving several cables around or having to transfer content to a USB which under certain circumstances wouldn't work on my aging PS3.</p>
+				<p>Because a friend from work had just told me about his success with Plex and I had also just bought a fancy new "RT-AC87U Dual-band 4x4 AC2400 Wifi 4-port Gigabit Router", I decided a media server was probably the best solution to my problem.</p>
+				<p>I installed Fedora on a desktop I had lying around and got the Plex Media Server running on it successfully after a few hours of tinkering. After getting the Plex server+client configured properly it was time to test. I took one of the nicer looking/sounding Blu-Ray titles I had lying around (Prometheus) and began ripping it to the server. Because Blu-Ray content is encoded with H.264 I decided to leave the files in this format (This produces very large files but preserves quality and I figured my new router was up to the task).</p>
+				<p>I was still unsure whether streaming over Wifi at such a high bit-rate (20-30MB/s) would be an issue but decided to leave my clients (PS3+PC) unplugged. After a little more tinkering the stream was working over the air in glorious (almost) full Blu-Ray quality! Over the next few months i'll be importing content to the server and improving my library. Now I enjoy high quality content on whatever device is most convenient and there's no effort involved (exactly how watching video should be).</p>
+				
+
+       
+
+			<h3>Project Details</h3>
+                <ul>
+                    <li>Plex Media Server running on Fedora</li>
+                    <li>Desktop using an AMD FX-8350 to keep up with real-time transcoding for devices that don't support server library formats. (A nice feature of Plex)</li>
+                    <li>Capable router for multiple high bit-rate Wifi streams (Incase multiple family members are streaming)</li>
+                    <li>A BluRay reader to rip content</li>
+                </ul>
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">More Pictures</h3>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="images/image_pages/pic1.html">
+                    <img class="img-responsive portfolio-item" src="images/screenshot_500x500.png" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="images/image_pages/pic2.html">
+                    <img class="img-responsive portfolio-item" src="images/network_traffic_500x300.png" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="images/image_pages/pic3.html">
+                    <img class="img-responsive portfolio-item" src="images/media_server_500x300.png" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="images/image_pages/pic4.html">
+                    <img class="img-responsive portfolio-item" src="images/plex_server_500x300.png" alt="">
+                </a>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p></p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
