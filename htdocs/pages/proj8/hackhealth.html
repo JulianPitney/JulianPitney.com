@@ -66,7 +66,7 @@
         <!-- Portfolio Item Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Hacking Health
+                <h1 class="page-header">Hacking Health: Shopify Hosted Hackathon
                     <small></small>
                 </h1>
             </div>
@@ -77,11 +77,27 @@
         <div class="row">
 
             <div class="col-md-8">
-                <img class="img-responsive" src="images/camera_noshell.jpg" alt="">
+                <img class="img-responsive" src="images/team_working.jpg" alt="">
             </div>
 
-                <h3>Project Description</h3>
-
+                <h3>Overview</h3>
+                <p>Our team placed first in the Hacking Health hackathon hosted at Shopify in Ottawa. For winning, we received round trip flights, hotel accomodations and conference passes for a full week in Waterloo. There, we were invited to pitch our product again at the finals which were held at the True North conferece.</p>
+                <h3>The Hackathon</h3>
+                <p>The goal of the hackathon was to assemble into teams of 10 and spend the weekend developing a product/solution that addressed a problem in healthcare. The sub-categories were social isolation, connected care and increasing the efficiency and effectiveness of diagnoses</p>
+                <h3>Our Solution</h3>
+                <p>We implemented a software + hardware system that allows wireless, automatic assessment of clinically significant kinematics on patients. Our hardware consisted of a set of IMUs, microcontroller and custom PCB all packaged into a small form factor device that patients can wear. The device had a bluetooth transmitter that paired
+                with an android app to collect the data using the user's phone. We set up kubernetes with google cloud and had a pub/sub instance in place that allowed us to push collected data from the user's phone up to the cloud and then pull that data back down into our processing/analysis/machine learning environments. This whole pipeline could have
+                scaled to thousands of users and worked in real time (IMU -> Android -> Pub/Sub -> TensorFlow -> Database) with ~2 seconds of latency. While 7 of our team worked on the system, the remaining 3 (stroke researchers) used their expertise to research, contact physicians/researchers and guide product development. In addition, they prepared an
+                excellent pitch presentation that allowed us to effectively communicate our work to the judges and crowd.</p>
+                <h3>My Role</h3>
+                <p>While normally I prefer a more technical role, for this event, I served as project manager and team lead. Our team was quite strong and diverse (Electrical engineer, mechanical engineer, Machine learning engineer, Data scientist, Dev Ops engineer, Web Developer, a few generalist programmers and 3 healthcare/rehab professionals).
+                Because of this, we decided to aim high and attempt to create a fully functional prototype of our system in a very short period of time. This required a large amount of organization. Before the event, I scheduled and ran multiple meetings (With coffe and donuts!) where we discussed product direction, relevant research, input from industry contacts, technical feasibility
+                and assigned development work. After these meetings I would speak with our sub-teams one on one to make sure they were getting what they needed from the other sub-teams, and make sure the things they were building were going to interface and work correctly with other components. Keeping everyone on the same page and keeping development moving in the right direction is hard
+                at the best of times (It was the best of times because our whole team was awesome), and doing that without micromanaging and stepping on people's toes is even harder. I'm lucky our whole team was competent, cooperative and generally pleasant to work with. Because of this, we managed to get an incredible amount done given the time constraints, and work 12 hour days
+                side by side for multiple days, all while enjoying the event and having a ton of fun.</p>
+            <div class="col-md-16">
+                <img class="img-responsive" src="images/ottawahackhealth.jpg" alt="">
+            </div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
