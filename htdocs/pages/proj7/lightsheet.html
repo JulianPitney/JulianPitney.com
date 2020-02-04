@@ -24,6 +24,11 @@
     body {
       font-family: Arial;
       margin: 0;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
     }
 
     * {
@@ -39,9 +44,29 @@
       position: relative;
     }
 
+    .slider-container {
+      max-height: 80%;
+    }
+
+
     /* Hide the images by default */
     .mySlides {
-      display: none;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .mySlides > img {
+      height: auto;
+      width: auto;
+      max-height: 100%;
+
+
     }
 
     /* Add a pointer when hovering over the thumbnail images */
@@ -64,11 +89,16 @@
       border-radius: 0 3px 3px 0;
       user-select: none;
       -webkit-user-select: none;
+      background-color: grey;
+    }
+
+    .prev {
+      left: 0px;
     }
 
     /* Position the "next button" to the right */
     .next {
-      right: 0;
+      right: 0px;
       border-radius: 3px 0 0 3px;
     }
 
@@ -91,7 +121,7 @@
     .caption-container {
       text-align: center;
       background-color: #222;
-      padding: 2px 16px;
+      margin: 2px 0px 2px 0px;
       color: white;
     }
 
@@ -115,6 +145,38 @@
     .active,
     .demo:hover {
       opacity: 1;
+    }
+    .rest-row {
+      flex: 2 ;
+      overflow: auto;
+    }
+    .flex-container {
+      display: flex;
+      flex-flow: column;
+      padding-bottom: 25px;
+    }
+    .flex-container > .row {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .demo.cursor {
+      min-width: 150px;
+      max-width: 150px;
+      padding: 5px;
+      border-radius: 15px;
+      border: 10px 10px 10px 10px;
+    }
+    .thumbs {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      overflow-y: auto;
+      overflow-x: auto;
+    }
+    .thumbs > img {
+      height: 100%;
     }
     </style>
 
@@ -156,87 +218,77 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container flex-container" style="height: 100%;">
 
         <!-- Portfolio Item Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Lightsheet Microscope
+            <h1 class="page-header">Lightsheet Microscope: <a href="https://github.com/JulianPitney/Lightsheet/blob/master/README.md">GitHub README </a>
                     <small></small>
                 </h1>
             </div>
         </div>
         <!-- /.row -->
 
-        <p>The slideshow below shows some images and renderings of the data we collected, along with some cool pictures of the system. Click here to take a look at the GitHub README for a detailed project description.</p>
+        <div class="row mx-auto">
+        </div>
 
-
-        <!-- Container for the image gallery -->
-        <div class="container">
-
-          <!-- Full-width images with number text -->
-          <div class="mySlides">
-            <div class="numbertext">1 / 6</div>
-              <img src="../../img/PT1_STROKE_MAX.png" style="width:100%">
-          </div>
-
-          <div class="mySlides">
-            <div class="numbertext">2 / 6</div>
-              <img src="../../img/3DStroke.gif" style="width:100%">
-          </div>
-
-          <div class="mySlides">
-            <div class="numbertext">3 / 6</div>
-              <img src="../../img/whole_system.jpg" style="width:720" style="height:640">
-          </div>
-
-          <div class="mySlides">
-            <div class="numbertext">4 / 6</div>
-              <img src="../../img/dual_projection.JPG" style="width:720">
-          </div>
-
-          <div class="mySlides">
-            <div class="numbertext">5 / 6</div>
-              <img src="../../img/thy1gfp.gif" style="width:100%">
-          </div>
-
-          <div class="mySlides">
-            <div class="numbertext">6 / 6</div>
-              <img src="../../img/laser_path.JPG" style="width:100%">
-          </div>
-
-          <!-- Next and previous buttons -->
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-          <!-- Image text -->
-          <div class="caption-container">
-            <p id="caption"></p>
-          </div>
-
-          <!-- Thumbnail images -->
-          <div class="row">
-            <div class="column">
-              <img class="demo cursor" src="../../img/PT1_STROKE_MAX.png" style="width:100%" onclick="currentSlide(1)" alt="Max Projection of Brain Vasculature With Stroke">
+        <div class="row rest-row">
+          <div class="col-lg-12 " style="height: 100%; overflow-x: hidden;">
+            <!-- Full-width images with number text -->
+            <div class="mySlides">
+              <div class="numbertext">1 / 6</div>
+                <img src="../../img/PT1_STROKE_MAX.png" >
             </div>
-            <div class="column">
-              <img class="demo cursor" src="../../img/3DStroke.gif" style="width:100%" onclick="currentSlide(2)" alt="3D Rendering of Brain Vasculature With Stroke">
+
+            <div class="mySlides">
+              <div class="numbertext">2 / 6</div>
+                <img src="../../img/3DStroke.gif" >
             </div>
-            <div class="column">
-              <img class="demo cursor" src="../../img/whole_system.jpg" style="width:100%" onclick="currentSlide(3)" alt="The Microscope">
+
+            <div class="mySlides">
+              <div class="numbertext">3 / 6</div>
+                <img src="../../img/whole_system.jpg" style="width:720" style="height:640">
             </div>
-            <div class="column">
-              <img class="demo cursor" src="../../img/dual_projection.JPG" style="width:100%" onclick="currentSlide(4)" alt="Dual Laser Illumination of Whole Brain">
+
+            <div class="mySlides">
+              <div class="numbertext">4 / 6</div>
+                <img src="../../img/dual_projection.JPG" style="width:720">
             </div>
-            <div class="column">
-              <img class="demo cursor" src="../../img/thy1gfp.gif" style="width:100%" onclick="currentSlide(5)" alt="3D Rendering of Neuron">
+
+            <div class="mySlides">
+              <div class="numbertext">5 / 6</div>
+                <img src="../../img/thy1gfp.gif" >
             </div>
-            <div class="column">
-              <img class="demo cursor" src="../../img/laser_path.JPG" style="width:100%" onclick="currentSlide(6)" alt="Laser Path Made Visible With Dry Ice">
+
+            <div class="mySlides">
+              <div class="numbertext">6 / 6</div>
+                <img src="../../img/laser_path.JPG" >
             </div>
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-sm-12 caption-container">
+            <p id="caption"></p>
+          </div>
+        </div>
+        <!-- Thumbnail images -->
+        <div class="row" style="height: 150px;">
+
+          <div class="col thumbs">
+            <img class="demo cursor" src="../../img/PT1_STROKE_MAX.png"  onclick="currentSlide(1)" alt="Max Projection of Brain Vasculature With Stroke">
+            <img class="demo cursor" src="../../img/3DStroke.gif"  onclick="currentSlide(2)" alt="3D Rendering of Brain Vasculature With Stroke">
+            <img class="demo cursor" src="../../img/whole_system.jpg"  onclick="currentSlide(3)" alt="The Microscope">
+            <img class="demo cursor" src="../../img/dual_projection.JPG"  onclick="currentSlide(4)" alt="Dual Laser Illumination of Whole Brain">
+            <img class="demo cursor" src="../../img/thy1gfp.gif"  onclick="currentSlide(5)" alt="3D Rendering of Neuron">
+            <img class="demo cursor" src="../../img/laser_path.JPG"  onclick="currentSlide(6)" alt="Laser Path Made Visible With Dry Ice">
+          </div>
+        </div>
 
         <script>
         var slideIndex = 1;
@@ -258,12 +310,12 @@
           if (n > slides.length) {slideIndex = 1}
           if (n < 1) {slideIndex = slides.length}
           for (i = 0; i < slides.length; i++) {
-              slides[i].style.display = "none";
+              slides[i].style.visibility = "hidden";
           }
           for (i = 0; i < dots.length; i++) {
               dots[i].className = dots[i].className.replace(" active", "");
           }
-          slides[slideIndex-1].style.display = "block";
+          slides[slideIndex-1].style.visibility = "visible";
           dots[slideIndex-1].className += " active";
           captionText.innerHTML = dots[slideIndex-1].alt;
         }
