@@ -80,19 +80,10 @@
                 <img class="img-responsive" src="images/balance_subtree_source.png" alt="">
             </div>
 
-            
+
                 <h3>Project Description</h3>
-                <p>This project was a second attempt at an assignment (Principles of Computer Science) that I never got quite right. The assignment was an AVL Binary Search Tree implementation in C++. Academic stuff like this is never too difficult because the prof generally just checks that your code "works" and if it does you land a perfect score. The real world is more challenging. Building a useable AVL Tree that doesn't throw away all of it's performance gains through naive implementation of various components is hard. That's what this (failed) attempt was about.</p>
-				<p>Like in my Generic Algorithms post, I tried to keep the focus of this exercise on problem solving and understanding. That means avoiding pseudo-code unless i'm really stuck. Everything was going swimmingly until I started trying to wrap my head around the height-balancing rotations used in an AVL Tree. I couldn't understand how it was possible to do a rotation on a set of nodes without having to recursively follow the access path into each of their sub-trees and modify all the connections going down. After a lot of frustration and re-reading things I realised how the process works. When a rotation is performed on a set of nodes, the sub-trees of those nodes need to be re-arranged to maintain the order of elements in the tree. The way this process was facilitated was very confusing until I realised that the rotation breaks the exact number of connections needed to allow re-attachment of the sub-trees without having to modify the connections of any nodes except the root nodes directly involved in the rotation. Brilliant! It feels obvious after figuring it out but at the time it was so confusing that I didn't even know how to ask about what I was confused about. Persistence is key.</p>
-				<p>The next challenging part (where I have so far failed) was to implement a node insertion method that doesn't kill insertion performance. The main problem here comes from re-calculating the balance factor of each node in the access path of the node being inserted. The method I used involved calling find_tree_height() on the left and right sub-trees of each node in the access path, then taking the difference between the two heights to determine the root node's new balance factor. The problem comes from how find_tree_height() gets the height of a sub-tree. It will recursively visit each node in a sub-tree to find the longest path. This means that for each node in the access path of a newly inserted node, find_tree_height() will visit EVERY node in that node's sub-tree. This completely eats away any insertion performance a properly implemented AVL Tree would offer.</p>
-				<p>What i'm left with at the end of this attempt is an AVL Tree with O(log n) search performance, but O(n^2) insertion performance. A tree that can look up elements extremely quickly, but takes a crippling amount of time to build in the first place. In conclusion, I reached half my performance goals and improved my debugging skills. Not a total loss!</p>
-                <h3>Project Details</h3>
-                <ul>
-                    <li>AVL Tree implementation in C++</li>
-                    <li>O(log n) lookup (Good!)</li>
-                    <li>O(n^2) insertion (Bad!)</li>
-                </ul>
-           
+                <p>Just an AVL tree implementation in C++.</p>
+
 
         </div>
         <!-- /.row -->
