@@ -93,58 +93,43 @@
                    blood vessels. This causes a stroke. By carefully controlling where the laser shines and the shape and intensity of the beam,
                    researchers have very fine control of the stroke variable in their experiments.
                    
-                <p>How do you get access to their brains? Surgery. The procedure is called a craniotomy. From Wikipedia: "A craniotomy is a surgical 
-                   operation in which a bone flap is temporarily removed from the skull to access the brain." So this is a common procedure
-                   performed by surgical technicians all over the world. I don't have exact numbers but it's a lot. What do we do with repetitive
-                   tasks that would also benefit from more precision than a human is capable of? We build a robot to do them.</p>
+                <p>How do you get access to their brains? The surgical procedure is called a craniotomy. From Wikipedia: "A craniotomy is a surgical 
+                   operation in which a bone flap is temporarily removed from the skull to access the brain." This is a common procedure
+                   performed by surgical technicians all over the world. Automating this procedure for low cost would provide a big productivity
+                   boost to pre-clinical research. It would also improve data quality by increasing the accuracy and precision of craniotomies.</p>
 
                 <p>Our goal was to get a proof of concept working to see if mouse craniotomies could be automated for a reasonable price.
+                
+                <h3>Method (High-Level Steps)</h3>
+                <p>
+                    Our solution relies on shining a laser beam onto the target area and recording the reflected light with a camera. 
+                    The laser light will be reflected onto a region of the sensor that differs depending on the height of the surface the beam is reflecting off of.
+                    Since this target-height:beam-translation ratio is constant, it's straightforward to calibrate and then use this information to calculate the height of 
+                    a point on the target relative to some set 0 point. The 0 point is determined by using the metal drillbit as a capacitive sensor and touching the drillbit
+                    to the top of the skull. 
+                    
+
+                    <ol>
+                        <li>The Arduino first instructs the CNC machine to lower the drillbit until it makes contact with the skull. When contact with the skull is made, this point is set as z=0. </li>
+                        <li>The laserlight then turns on and shines it's beam across the target.</li>
+                        <li>The camera grabs a frame.</li>
+                        <li>The CNC machine moves the toolhead a small amount.</li>
+                        <li>Repeat until we have a scan of the skull's surface.</li>
+                        <li>OpenCV is then used to extract the laser lines in each frame and map the relevant pixels onto XYZ coordinates in our coordinate space. </li>
+                        <li>The output of the above step is a point cloud of the skull's surface.</li>
+                        <li>This point cloud is then run through MeshLab to generate a 3D model of the skull's surface.</li>
+                        <li>This 3D model is then fed into Fusion 360 to generate a toolpath for the CNC machine to follow.</li>
+                    </ol>
+                </p>
+
+                <h3>Conclusion</h3>
+                <p>Yep. You can do an automated craniotomy for about $1000 in parts. Obviously our implementation is really rough and 
+                    there's a lot of room for improvement. But with some development time and a little money we could design something 
+                    that would do an excellent job for this specific procedure in mice.
+                </p>
                     <div class="col-lg-12 col-lg-12">
                         <img class="img-responsive portfolio-item" src="images\285183684_581245230191818_738763148605609657_n.jpg" alt="">
                 </div>
-
-                <h3>How does it work?</h3>
-                    <ol>
-                        <li>Shine a laser beam directly down onto your sample (mouse head) and point a camera at the sample. The geometry between
-                            the laser diode, camera detector and sample is important.
-                        </li>
-                        <p></p>
-                        <li>The laser light will reflect off the sample and into your camera's detector. When a ray of light strikes 
-                            the sample and reflects off of it, the new path of the ray depends in part on the height of the object being
-                            struck. With our geometry, we imagine the surface that the sample is lying on to be the xy plane, so points on 
-                            the mouse head that are taller are higher up in z in our coordinate system. If a ray from our laser reflects off 
-                            a point that's higher in z, it will contact the camera detector at a proportionally different point. This difference,
-                            from the camera sensor's coordinate frame, manifests as a translation in x of the pixel that's receiving signal. So the 
-                            lit up pixels in the camera are translated in x (camera's coordinate system) in proportion to the z (sample/laser's
-                            coordinate system) height of the point that the ray reflected off of. By meausuring this μm:pixel ratio and counting
-                            the number of pixels a signal has shifted in x with respect to a calibrated zero, we can calculate the z height of the point 
-                            which must have reflected the ray to produce that signal. 
-                        </li>
-                        <p></p>
-                        <li>So that gives us the height of a single point on the head. How do we get a depth map of the entire head? One dimension
-                            is covered by using a lens to shape the laser beam into a line that extends across the entire sample. This translates to a scan line 
-                            on our camera detector where each y value on the detector has a signal pixel lit up at some x value depending on the height
-                            of the sample at that y. The final dimension is achieved by having a CNC machine move the entire imaging assembly in a line,
-                            sweeping the scan line across the length of the sample. We take frames at regular intervals depending on some specified resolution and in this way we're 
-                            able to build up a point-cloud-depth-map of our entire sample. 
-                        </li>
-                        <p></p>
-                        <li>Next we need to process the point cloud into a 3D model that can be used to define a toolpath for the CNC machine. For this 
-                            we imported the point cloud into Meshlab. Meshlab allowed us to clean up the cloud significantly and then generate a mesh 
-                            from the cloud. 
-                        </li>
-                        <p></p>
-                        <li>Now we import the mesh into Fusion 360 and define a toolpath relative to the coordinate frame of the mesh. Because we know
-                            the height of every point on the surface of the head, and we know the anatomy of mice (how thick their skull is at different points),
-                            we're able to define a tool path that will effectively perform a craniotomy. 
-                        </li>
-                        <p></p>
-                        <li>The final step before pressing the button is uploading the gcode that fusion 360 generated and zeroing the tool head to the 
-                            surface of our sample. We automated the zeroing by attaching a wire to the metal tool head and ________jack what did we do here??______.
-                        </li>
-                        <p></p>
-                        <li>Press go and watch your (already dead) test mouse have part of their skull removed!</li>
-                    </ol>
                 <br>
                 <div class="col-lg-12 col-lg-12">
                     <img class="img-responsive portfolio-item" src="images\286895553_431621791876323_5432150163187277476_n.jpg" alt="">
@@ -155,63 +140,33 @@
                 <div class="col-lg-12 col-lg-12">
                     <img class="img-responsive portfolio-item" src="images\287072108_402445094979396_1905652845706246479_n.jpg" alt="">
             </div>
+                <div class="col-lg-12 col-lg-12">
+                <img class="img-responsive portfolio-item" src="images/288173653_3344719332416808_8592358844934566219_n.jpg" alt="">
+            </a>
+        </div>
 
         <br>
         <div class="col-lg-12 col-lg-12">
             <img class="img-responsive portfolio-item" src="images\288036339_2878601242440866_8965846370515822062_n.jpg" alt="">
+        </div>
+        <div class="col-lg-12 col-lg-12">
+            <img class="img-responsive portfolio-item" src="images/287394764_566538318195784_2966132376775683381_n.jpg" alt="">
+        </a>
     </div>
-            
             
                 </p>
                     </p>
 
                 <p></p>
                 <br>
-                <h3>Conclusion</h3>
-                <p>Yep. You can do an automated craniotomy for about $1000 in parts. Obviously our implementation is really rough and 
-                   there's a lot of room for improvement. But with some development time and a little money we could design something 
-                   that would do an excellent job for this specific procedure in mice. Automating surgical procedures has a number of advantages over manual and I suspect 
-                   animal (and human) surgical centers will continue to move further down this path as time goes on. 
-                </p>
-
-                
-		
 				<br>
-				<h3>Major Components</h3>
-                <ul>
-                    <li>Desktop CNC Machine</li>
-                    <li>Flir BFS-U3-16SM</li>
-                    <li>$5 Red Laser</li>
-                    <li>Arduino Mega</li>
-                    <li>Resistive Heating Pad</li>
-                    <li>Surgical Drill Bit </li>
-                    <li>Python</li>
-                    <li>Meshlab</li>
-                    <li>Fusion 360</li>
-                    <li>3D Printer</li>
-                    <li>Electrical contact sensor (name?)</li>
-                    <li>OpenCV</li>
-                </ul>
 				
-				
-
         </div>
         <!-- /.row -->
 
-			
-            <div class="col-lg-12">
-                <h3 class="page-header">More Pictures</h3>
-            </div>
 
-            <div class="col-sm-3 col-xs-6">
-                    <img class="img-responsive portfolio-item" src="images/288173653_3344719332416808_8592358844934566219_n.jpg" alt="">
-                </a>
-            </div>
 
-        <div class="col-sm-3 col-xs-6">
-            <img class="img-responsive portfolio-item" src="images/287394764_566538318195784_2966132376775683381_n.jpg" alt="">
-        </a>
-    </div>
+
 
 
             
