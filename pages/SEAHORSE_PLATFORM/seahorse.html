@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PCR Machine</title>
+    <title>Clinical Trial Data Management Platform</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,6 +23,20 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+      body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; color: #333; }
+      .container { max-width: 800px; margin: auto; padding: 20px; }
+      h3 { color: #0066cc; }
+      p, li { font-size: 16px; }
+      ul { margin: 10px 0; }
+      ul li { margin: 5px 0; }
+      ul ul { margin-left: 20px; }
+    .full-page-image img {
+            width: 100vw;
+            height: 100vh; } 
+    </style>
+
 
 </head>
 
@@ -66,56 +80,114 @@
         <!-- Portfolio Item Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">PCR Machine
+                <h1 class="page-header">Clinical Trial Data Management Platform
                     <small></small>
                 </h1>
             </div>
         </div>
         <!-- /.row -->
 
-        <!-- Portfolio Item Row -->
-        <div class="row">
+        
+        <div class="container">
+            <h3>Project Description</h3>
+            <p>This project was about building the infrastructure needed to automate and optimize a healthcare business. The company runs clinical trials 
+                for most of the major pharmaceutical companies in the world. At any one time, the company has 15-30 trials running concurrently. 
+                They've been around a while and have healthy financials, but everything was still running on paper, Excel, and a very dated SaaS system. This 
+                meant there was a lot of room for efficiency gains. They're also in the process of expanding and needed a system that could scale with them.</p>
+            
+            <h3>High-Level Goals:</h3>
+            <ul>
+                <li>Discover, define, and automate as many workflows as possible.</li>
+                <li>Digitize as much data as possible.</li>
+                <li>Elevate the quality of data within the organization 
+                    <ul>
+                        <li>Detect and correct existing errors.</li>
+                        <li>Guard datasets against new errors.</li>
+                        <li>Define a data model that fits the organization's workflows and restructure existing data to fit the new data model.</li>
+                        <li>Provide high-quality interfaces for querying datasets (Frontend GUIs for humans and APIs for software).</li>
+                    </ul>
+                </li>
+                <li>Get data and processes into the cloud securely and in compliance with PHIPA, PIPEDA, and Law 25.</li>
+                <li>Make frequent audits faster and easier to pass by:
+                    <ul>
+                        <li>Streamlining user management and access controls.</li>
+                        <li>Aggregating data into fewer locations.</li>
+                        <li>Defining digital infrastructure and processes as code.</li>
+                    </ul>
+                </li>
+                <li>Build a system that can scale to thousands of employees and hundreds of thousands of patients.</li>
+                <li>Build a system capable of accurate, real-time analytics.</li>
+                <li>Experiment with A.I tools like multi-modal LLMs, text-to-speech, speech-to-text, computer vision, etc., to try and build useful features.</li>
+                <li>Use automation to reduce operating cost while increasing revenue.</li>
+                <li>Use automation to improve patient experience and deliver a better product to customers (patients and pharmaceutical companies).</li>
+            </ul>
+            <h3>My Role:</h3>
+            <ul>
+                <li>Hire and lead team of 5 developers.</li>
+                <li>Design and implement dev + production cloud infrastructure using Terraaform, AWS and Kubernetes.</li>
+                <li>Build CI/CD pipelines using GitHub Actions.</li>
+                <li>Design ERD in DBeaver and then implement data model in Django.</li>
+                <li>Integrate with 3rd party clinical trials platform (CRIO) using their API.</li>
+                <li>Explore and experiment with various A.I tools (OpenAI API, langchain, AWS A.I functions, various other tools) </li>
+                <li>Propose, negotiate and oversee cybersecurity and regulatory audit by 3rd party company (PacketLabs in Toronto).</li>
+                <li>Earn buy-in across the organization by delivering results and advocating for our work using effective communication.</li>
+                <li>Motivate the team and get them the resources they need.</li>
+            </ul>
+
+            <h3>Technology Stack:</h3>
+            <ul>
+                <li>Python</li>
+                <li>AWS</li>
+                <li>K8s</li>
+                <li>Docker</li>
+                <li>Terraform</li>
+                <li>Django Rest Framework</li>
+                <li>PostgreSQL</li>
+                <li>React</li>
+                <li>OpenAI API</li>
+                <li>CRIO API</li>
+            </ul>
 
 
-                <h3>Project Description</h3>
-				<p>This project </p>
-				
-				<div class="col-lg-7">
-				 <img class="img-responsive" src="board_nologo.jpg" alt="">
-				 </div>
 
-				
-				
-			
-				
-				<h3>Major Components</h3>
-                <ul>
-                    <li>Raspberry Pi Model B+</li>
 
-                </ul>
-				
-				
-				
+        </div>   
+        </html>
+        <style>
+            h1 {
+                text-align: center;
+            }
+        </style>
+        
+        <h1>Pictures:</h1>
+    </div>
+    <style>
+        .portfolio-item {
+            margin-bottom: 30px;
+        }
+    </style>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/homepage.png" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/queryprompt.png" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/patientsearch.png" alt="">   
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/patient_profile.png" alt="">   
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/calendar.png" alt="">   
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/admin_homepage.png" alt="">   
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/swagger_homepage.png" alt="">   
+    </div>
 
-        </div>
-        <!-- /.row -->
-
-		
-		
-        <!-- Related Projects Row -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="page-header">More Pictures</h3>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="images/image_pages/pic1.html">
-                    <img class="img-responsive portfolio-item" src="images/chris_drawing500x660.jpg" alt="">
-                </a>
-            </div>
-
-        </div>
-        <!-- /.row -->
 
         <hr>
 
