@@ -16,107 +16,198 @@
 
     <!-- Custom CSS -->
     <link href="css/portfolio-item.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"></a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="../../index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="../../index.html#services">Projects</a>
-                    </li>
-                    <li>
-                        <a href="../../index.html#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Portfolio Item Heading -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">PCR Machine
-                    <small></small>
-                </h1>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Portfolio Item Row -->
-        <div class="row">
-
-
-                <h3>Project Description</h3>
-				<p>This project </p>
-				
-				<div class="col-lg-7">
-				 <img class="img-responsive" src="board_nologo.jpg" alt="">
-				 </div>
-
-				
-				
-			
-				
-				<h3>Major Components</h3>
-                <ul>
-                    <li>Raspberry Pi Model B+</li>
-
-                </ul>
-				
-				
-				
-
-        </div>
-        <!-- /.row -->
-
-		
-		
-        <!-- Related Projects Row -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h3 class="page-header">More Pictures</h3>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="images/image_pages/pic1.html">
-                    <img class="img-responsive portfolio-item" src="images/chris_drawing500x660.jpg" alt="">
-                </a>
-            </div>
-
-        </div>
-        <!-- /.row -->
-
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; color: #333; }
+        .container { max-width: 800px; margin: auto; padding: 20px; }
+        h3 { color: #0066cc; }
+        p, li { font-size: 16px; }
+        ul { margin: 10px 0; }
+        ul li { margin: 5px 0; }
+        ul ul { margin-left: 20px; }
+      .full-page-image img {
+              width: 100vw;
+              height: 100vh; } 
+      </style>
+  
+  
+  </head>
+  
+  <body>
+  
+      <!-- Navigation -->
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+          <div class="container">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"></a>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">
+                      <li>
+                          <a href="../../index.html">Home</a>
+                      </li>
+                      <li>
+                          <a href="../../index.html#services">Projects</a>
+                      </li>
+                      <li>
+                          <a href="../../index.html#contact">Contact</a>
+                      </li>
+                  </ul>
+              </div>
+              <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container -->
+      </nav>
+  
+      <!-- Page Content -->
+      <div class="container">
+  
+          <!-- Portfolio Item Heading -->
+          <div class="row">
+              <div class="col-lg-12">
+                  <h1 class="page-header">PCR Machine
+                      <small></small>
+                  </h1>
+              </div>
+          </div>
+          <!-- /.row -->
+  
+          
+          <div class="container">
+              <h3>Project Description</h3>
+              <p>This project was for a biotech startup in the Ottawa area. They came to me with the idea to build a point-of-care genetic screening
+                 device that could test for the presence of genes that are associated with a higher risk of developing AD (Alzheimer's Disease). The company
+                 has a chemistry team that developed the wet lab chemistry. They wanted an engineering team to develop the hardware and software to run the tests.
+                 The idea was to build a device that handled DNA purification, PCR amplification, and detection of the amplified DNA. The goal was to make it 
+                 very quick and easy to use. They asked me to lead this effort. We had a mechanical engineer, an A.I PhD, and myself. After several months of 
+                 working on it part-time, we had a working prototype of two of the sub systems (DNA purification and PCR amplification). Work on the detection system
+                 and integration of all 3 sub-systems is still ongoing.
+              </p>
+              
+              <h3>My Role:</h3>
+              <ul>
+                  <li>Design and implement software and electronics for each subsystem.
+                    <ul>
+                        <li>High-accuracy temperature sensing system.</li>
+                        <li>Peltier heat pump system for thermally cycling recation block.</li>
+                        <li>PID control loop.</li>
+                        <li>Photodiode amplifier circuit for detection system.</li>
+                        <li>Transport system for moving imaging assembly across reaction wells.</li>
+                        <li>Motorized valves for running purification subsystem.</li>
+                    </ul>
+                  </li>
+                  <li>Interface with chemistry team to ensure hardware and software met their requirements.</li>
+                  </li>
+              </ul>
+  
+              <h3>Noteable Components + Tools:</h3>
+              <ul>
+                  <li>Python</li>
+                  <li>Texas Instruments TMP117MAIDRVT high-accuracy SMD temperature sensors</li>
+                  <li>Laird Thermal PCX7.5-13-F1-4023-TA-RT-W6 molecular diagnostics peltier elements</li>
+                  <li>Texas Instruments OPA380AID op amp</li>
+                  <li>RPi</li>
+                  <li>Narrow bandwidth excitation LEDs from ThorLabs.</li>
+                  <li>Autodesk Eagle</li>
+                  <li>Autodesk Fusion360</li>
+                </li>
+              </ul>
+  
+  
+  
+  
+          </div>   
+          </html>
+          <style>
+              h1 {
+                  text-align: center;
+              }
+          </style>
+          
+          <h1>Pictures (These are from various stages of development. Pics include early prototypes and working prototype):</h1>
+      </div>
+      <style>
+          .portfolio-item {
+              margin-bottom: 30px;
+          }
+      </style>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/workstation.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/smd_hotplate.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/solder_paste.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/temp_sensor_scale.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/temp_sensor_class.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/solder_inspect.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/scope_i2c.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/power.jpg" alt="">
+    </div>    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/live_graph3.png" alt="">
+    </div>    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/live_graph2.png" alt="">
+    </div>    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/live_graph.png" alt="">
+    </div>    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/ir.jpg" alt="">
+    </div>    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/heat_block.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/gradient.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/gel_results2.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/gel_results.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/fluoro_excitation_led.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/excellent_control.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/dual_tmp117maidrvt_addr1_top.png" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/dual_tmp117maidrvt_addr1_bottom.png" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/dual_tmp117maidrvt_addr0_top.png" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/dual_tmp117maidrvt_addr0_bottom.png" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/box_cad.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/board_assembly_crop.jpg" alt="">
+    </div>
+    <div class="col-lg-12 col-lg-12">
+        <img class="img-responsive portfolio-item" src="images/working_proto.jpg" alt="">
+    </div>
         <hr>
 
         <!-- Footer -->
