@@ -75,11 +75,7 @@
 
   
             <h3>Project Description</h3>
-			<p>I decided to do this because I kept hearing about neural nets in various media. They sounded cool and I wanted to know how they worked.
-			The majority of this project was reading and trying to understand the architecture and math involved. Figuring out gradient descent and
-			how it works together with back propagation to facilitate the network's learning was tricky. I'm going to gloss over the architecture for now,
-			as it's (relatively) simple and there's a diagram summing it up to the left. I'll instead focus on explaining gradient descent, as that's the meat
-			of this project.</p>
+            <p>This project was inspired by curiosity about neural networks. Sometime in 2016, I decided to teach myself how gradient descent, back-propagation and basic neural networks work. I did this by implementing my own from scratch (using just the C++ standard library) and then convincing myself it works by training it on the MNIST dataset and having it accurately predict the digits in the test dataset.</p>
 			<h3>Gradient Descent</h3>
 			<p>Neural nets work by defining an error function that compares the actual output of the network to the
 			desired output of the network. The goal is to minimize this error function. Gradient descent works by findinding the partial derivative of the error function with respect to each variable that the error function depends on. 
@@ -87,27 +83,14 @@
 			that variable in order to reduce the value of the error function (This increase or decrease is done in small increments, once each iteration, to avoid overshooting 
 			the adjustments). The complex part is that nested within the error function is the output of
 			the network, and the output of the network is itself a composite function consisting of the activation function of every node in the network
-			(which are all linked together and feeding forward into each other). So the error function is a composite of hundreds to thousands of functions, which makes 
+			(which are all linked together and feeding forward into each other). So the error function is a composite of thousands to billions of functions, which makes 
 			finding it's partial derivatives tricky. In addition to that, you have to find the partial derivative of the error function once for every variable in that function (which includes every weight and
 			bias in every layer of the network). Only then can you update all the weights and biases in the correct direction, reducing the overall error for that input.
-			This whole procedure is repeated once for every training input (I used the MNIST data set, which contains 50,000 training samples, which is small comapared to real world applications).
-			It's effectively a hyper efficient way to minimize a function with thousands or even millions of variables. This explains why deep-learning
-			is so computationally expensive, it is however, many orders of magnitude more efficient than other optimization methods. This allows us to optimize very large and complex
-			functions that depend on millions of parameters, which is a primitive form of learning.</p>
-			<h3>Implementation</h3>
-			<p>After figuring out all of the above (which took awhile), I understood everything well enough to write everything from scratch in C++.
-			I tried to build everything in a modular and easy to use way. I took advantage of C++'s polymorphism features (type compatibility between parent and child
-			class pointers and virtual functions) to build a nice interface between the neural net and data acquisition modules, allowing different data formats to be easily used
-			for training and benchmarking. The end result was a single function to generate a neural net, another function for training it, and a third function
-			for benchmarking. All of which are configurable through function parameters and global variables. I played around with trying to parralelize some of the
-			functions that take up a lot of cycles, but never managed to get that working correctly.</p>
-			<p>I tested the finished product using the MNIST data set, which consists of 60,000 images of hand-written digits (0-9). My network correctly identified around
-			98% of the test data after being trained on the training data. This was a tough project but it felt really good seeing it all working correctly. And understanding in detail 
-			how neural nets work is pretty cool too.</p>
+			This whole procedure is repeated once for every training input. This allows us to "descend the gradient" of the error function. This is the fundamental algorithm that makes neural networks work, which as we know in 2025, has turned out to be a really powerful idea.</p>
 
         </div>
 		
-		<h3>Project Details</h3>
+		<h3>Components</h3>
                 <ul>
                     <li>C++</li>
                     <li>Feed Forward Neural Network</li>
