@@ -80,53 +80,6 @@
                 <img class="img-responsive" src="images/camera_noshell.jpg" alt="">
             </div>
 
-                <h3>Why are we doing robotic surgery on mice?</h3>
-				<p>Neuroscience researchers use mice to study stroke. We use these animals to test new treatments that we hope will one day improve 
-                   (or prevent) stroke outcomes in human patients. When experimenting with a new treatment, you want to control as many 
-                   variables as possible so that it's easy to tell what affect your treatment is having. If one group of mice with strokes has
-                   much better outcomes than another group of mice with strokes, and the only other difference between them is your treatment, then
-                   you can prove your treatment is working. </p>
-
-                <p>One variable that's important to control when studying stroke treatments is the location and size/severity of the stroke itself.
-                   A common method for achieving this is perfusing the brain's vasculature network with a photosensitive dye and then shining a laser 
-                   on the part of the brain where stroke is desired. The laser light striking the dye causes the dye to congeal and plug the 
-                   blood vessels. This causes a stroke. By carefully controlling where the laser shines and the shape and intensity of the beam,
-                   researchers have very fine control of the stroke variable in their experiments.
-                   
-                <p>How do you get access to their brains? The surgical procedure is called a craniotomy. From Wikipedia: "A craniotomy is a surgical 
-                   operation in which a bone flap is temporarily removed from the skull to access the brain." This is a common procedure
-                   performed by surgical technicians all over the world. Automating this procedure for low cost would provide a big productivity
-                   boost to pre-clinical research. It would also improve data quality by increasing the accuracy and precision of craniotomies.</p>
-
-                <p>Our goal was to get a proof of concept working to see if mouse craniotomies could be automated for a reasonable price.
-                
-                <h3>Method (High-Level Steps)</h3>
-                <p>
-                    Our solution relies on shining a laser beam onto the target area and recording the reflected light with a camera. 
-                    The laser light will be reflected onto a region of the sensor that differs depending on the height of the surface the beam is reflecting off of.
-                    Since this target-height:beam-translation ratio is constant, it's straightforward to calibrate and then use this information to calculate the height of 
-                    a point on the target relative to some set 0 point. The 0 point is determined by using the metal drillbit as a capacitive sensor and touching the drillbit
-                    to the top of the skull. 
-                    
-
-                    <ol>
-                        <li>The Arduino first instructs the CNC machine to lower the drillbit until it makes contact with the skull. When contact with the skull is made, this point is set as z=0. </li>
-                        <li>The laserlight then turns on and shines it's beam across the target.</li>
-                        <li>The camera grabs a frame.</li>
-                        <li>The CNC machine moves the toolhead a small amount.</li>
-                        <li>Repeat until we have a scan of the skull's surface.</li>
-                        <li>OpenCV is then used to extract the laser lines in each frame and map the relevant pixels onto XYZ coordinates in our coordinate space. </li>
-                        <li>The output of the above step is a point cloud of the skull's surface.</li>
-                        <li>This point cloud is then run through MeshLab to generate a 3D model of the skull's surface.</li>
-                        <li>This 3D model is then fed into Fusion 360 to generate a toolpath for the CNC machine to follow.</li>
-                    </ol>
-                </p>
-
-                <h3>Conclusion</h3>
-                <p>Yep. You can do an automated craniotomy for about $1000 in parts. Obviously our implementation is really rough and 
-                    there's a lot of room for improvement. But with some development time and a little money we could design something 
-                    that would do an excellent job for this specific procedure in mice.
-                </p>
                     <div class="col-lg-12 col-lg-12">
                         <img class="img-responsive portfolio-item" src="images\285183684_581245230191818_738763148605609657_n.jpg" alt="">
                 </div>

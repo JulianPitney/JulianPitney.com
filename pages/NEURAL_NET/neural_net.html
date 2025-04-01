@@ -79,9 +79,9 @@
 			<h3>Gradient Descent</h3>
 			<p>Neural nets work by defining an error function that compares the actual output of the network to the
 			desired output of the network. The goal is to minimize this error function. Gradient descent works by findinding the partial derivative of the error function with respect to each variable that the error function depends on. 
-			These derivatives give the rate of change of the error function with respect to each variable, showing you whether you need to increase or decrease 
-			that variable in order to reduce the value of the error function (This increase or decrease is done in small increments, once each iteration, to avoid overshooting 
-			the adjustments). The complex part is that nested within the error function is the output of
+			These derivatives give the direction (sign) of the rate of change of the error function with respect to each variable, showing you whether you need to increase or decrease 
+			that variable in order to reduce the value of the error function. This increase or decrease is done in small increments, once each iteration, to avoid overshooting 
+			the adjustments. The complex part is that nested within the error function is the output of
 			the network, and the output of the network is itself a composite function consisting of the activation function of every node in the network
 			(which are all linked together and feeding forward into each other). So the error function is a composite of thousands to billions of functions, which makes 
 			finding it's partial derivatives tricky. In addition to that, you have to find the partial derivative of the error function once for every variable in that function (which includes every weight and
