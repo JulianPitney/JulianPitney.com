@@ -9,178 +9,151 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Lightsheet Microscope</title>
+    <title>Lightsheet Imaging - Julian Pitney</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/portfolio-item.css" rel="stylesheet">
+    <link href="../../css/landing-page.css" rel="stylesheet">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!-- Custom Fonts -->
+    <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-    }
+        body {
+            padding-top: 50px; /* Space for fixed navbar */
+            font-family: 'Lato', sans-serif;
+            background-color: #f8f8f8;
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    img {
-      vertical-align: middle;
-    }
+        .mySlides {
+            display: none;
+            text-align: center;
+            position: relative;
+        }
 
-    /* Position the image container (needed to position the left and right arrows) */
-    .container {
-      position: relative;
-    }
+        .mySlides img {
+            max-height: 60vh;
+            max-width: 100%;
+            object-fit: contain;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
 
-    .slider-container {
-      max-height: 80%;
-    }
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 10;
+        }
 
+        .prev {
+            left: 20px;
+        }
 
-    /* Hide the images by default */
-    .mySlides {
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      position: absolute;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
+        .next {
+            right: 20px;
+        }
 
-    .mySlides > img {
-      height: auto;
-      width: auto;
-      max-height: 100%;
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
 
+        /* Number text (1/6 etc) */
+        .numbertext {
+            display: none; /* Hide the number counter completely */
+        }
 
-    }
+        /* Caption text */
+        .caption-container {
+            text-align: center;
+            background-color: rgba(34, 34, 34, 0.85);
+            padding: 15px;
+            color: white;
+            border-radius: 8px;
+            margin: 15px auto;
+            max-width: 800px;
+        }
 
-    /* Add a pointer when hovering over the thumbnail images */
-    .cursor {
-      cursor: pointer;
-    }
+        .caption-container p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
 
-    /* Next & previous buttons */
-    .prev,
-    .next {
-      cursor: pointer;
-      position: absolute;
-      top: 40%;
-      width: auto;
-      padding: 16px;
-      margin-top: -50px;
-      color: white;
-      font-weight: bold;
-      font-size: 20px;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-      -webkit-user-select: none;
-      background-color: grey;
-    }
+        /* Thumbnails */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
 
-    .prev {
-      left: 0px;
-    }
+        .column {
+            float: left;
+            width: 16.66%;
+        }
 
-    /* Position the "next button" to the right */
-    .next {
-      right: 0px;
-      border-radius: 3px 0 0 3px;
-    }
+        .demo {
+            opacity: 0.6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
+        .active, .demo:hover {
+            opacity: 1;
+        }
 
-    /* Number text (1/3 etc) */
-    .numbertext {
-      color: #f2f2f2;
-      font-size: 12px;
-      padding: 8px 12px;
-      position: absolute;
-      top: 0;
-    }
+        .thumbs-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
 
-    /* Container for image text */
-    .caption-container {
-      text-align: center;
-      background-color: #222;
-      margin: 2px 0px 2px 0px;
-      color: white;
-    }
+        .thumb {
+            width: 120px;
+            height: 120px;
+            margin: 5px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            object-fit: cover;
+            cursor: pointer;
+        }
 
-    .row:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
+        .thumb:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
 
-    /* Six columns side by side */
-    .column {
-      float: left;
-      width: 16.66%;
-    }
-
-    /* Add a transparency effect for thumnbail images */
-    .demo {
-      opacity: 0.6;
-    }
-
-    .active,
-    .demo:hover {
-      opacity: 1;
-    }
-    .rest-row {
-      flex: 2 ;
-      overflow: auto;
-    }
-    .flex-container {
-      display: flex;
-      flex-flow: column;
-      padding-bottom: 25px;
-    }
-    .flex-container > .row {
-      width: 100%;
-      margin: 0 auto;
-    }
-    .demo.cursor {
-      min-width: 150px;
-      max-width: 150px;
-      padding: 5px;
-      border-radius: 15px;
-      border: 10px 10px 10px 10px;
-    }
-    .thumbs {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      overflow-y: auto;
-      overflow-x: auto;
-    }
-    .thumbs > img {
-      height: 100%;
-    }
+        .active-thumb {
+            border: 3px solid #0066cc;
+        }
     </style>
-
-
 </head>
 
 <body>
@@ -202,10 +175,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="../../index.html">Home</a>
+                        <a href="../../index.html#about">Home</a>
                     </li>
                     <li>
-                        <a href="../../index.html#services">Projects</a>
+                        <a href="../../index.html#Lightsheet Microscope">Projects</a>
                     </li>
                     <li>
                         <a href="../../index.html#contact">Contact</a>
@@ -218,105 +191,118 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container flex-container" style="height: 100%;">
-
-        <div class="row mx-auto">
-        </div>
-
-        <div class="row rest-row">
-          <div class="col-lg-12 " style="height: 100%; overflow-x: hidden;">
-            <!-- Full-width images with number text -->
+    <div class="container">
+        <div class="slider-container">
+            <!-- Slides -->
             <div class="mySlides">
-              <div class="numbertext">1 / 6</div>
-                <img src="../../img/PT1_STROKE_MAX.png" >
+                <img src="../../img/PT1_STROKE_MAX.png" alt="Max Projection of Brain Vasculature With Stroke">
             </div>
 
             <div class="mySlides">
-              <div class="numbertext">2 / 6</div>
-                <img src="../../img/3DStroke.gif" >
+                <img src="../../img/3DStroke.gif" alt="3D Rendering of Brain Vasculature With Stroke">
             </div>
 
             <div class="mySlides">
-              <div class="numbertext">3 / 6</div>
-                <img src="../../img/whole_system.jpg" style="width:720" style="height:640">
+                <img src="../../img/whole_system.jpg" alt="The Microscope">
             </div>
 
             <div class="mySlides">
-              <div class="numbertext">4 / 6</div>
-                <img src="../../img/dual_projection.JPG" style="width:720">
+                <img src="../../img/dual_projection.JPG" alt="Dual Laser Illumination of Whole Brain">
             </div>
 
             <div class="mySlides">
-              <div class="numbertext">5 / 6</div>
-                <img src="../../img/thy1gfp.gif" >
+                <img src="../../img/thy1gfp.gif" alt="3D Rendering of Neuron">
             </div>
 
             <div class="mySlides">
-              <div class="numbertext">6 / 6</div>
-                <img src="../../img/laser_path.JPG" >
+                <img src="../../img/laser_path.JPG" alt="Laser Path Made Visible With Dry Ice">
             </div>
-            <!-- Next and previous buttons -->
+
+            <!-- Navigation buttons -->
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-          </div>
-        </div>
+            <!-- Caption text -->
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
 
-        <div class="row">
-          <div class="col-sm-12 caption-container">
-            <p id="caption"></p>
-          </div>
+            <!-- Thumbnails -->
+            <div class="thumbs-container">
+                <img class="thumb" src="../../img/PT1_STROKE_MAX.png" onclick="currentSlide(1)" alt="Max Projection of Brain Vasculature With Stroke">
+                <img class="thumb" src="../../img/3DStroke.gif" onclick="currentSlide(2)" alt="3D Rendering of Brain Vasculature With Stroke">
+                <img class="thumb" src="../../img/whole_system.jpg" onclick="currentSlide(3)" alt="The Microscope">
+                <img class="thumb" src="../../img/dual_projection.JPG" onclick="currentSlide(4)" alt="Dual Laser Illumination of Whole Brain">
+                <img class="thumb" src="../../img/thy1gfp.gif" onclick="currentSlide(5)" alt="3D Rendering of Neuron">
+                <img class="thumb" src="../../img/laser_path.JPG" onclick="currentSlide(6)" alt="Laser Path Made Visible With Dry Ice">
+            </div>
         </div>
-        <!-- Thumbnail images -->
-        <div class="row" style="height: 150px;">
+    </div>
 
-          <div class="col thumbs">
-            <img class="demo cursor" src="../../img/PT1_STROKE_MAX.png"  onclick="currentSlide(1)" alt="Max Projection of Brain Vasculature With Stroke">
-            <img class="demo cursor" src="../../img/3DStroke.gif"  onclick="currentSlide(2)" alt="3D Rendering of Brain Vasculature With Stroke">
-            <img class="demo cursor" src="../../img/whole_system.jpg"  onclick="currentSlide(3)" alt="The Microscope">
-            <img class="demo cursor" src="../../img/dual_projection.JPG"  onclick="currentSlide(4)" alt="Dual Laser Illumination of Whole Brain">
-            <img class="demo cursor" src="../../img/thy1gfp.gif"  onclick="currentSlide(5)" alt="3D Rendering of Neuron">
-            <img class="demo cursor" src="../../img/laser_path.JPG"  onclick="currentSlide(6)" alt="Laser Path Made Visible With Dry Ice">
-          </div>
-        </div>
-
-        <script>
+    <script>
         var slideIndex = 1;
         showSlides(slideIndex);
 
         function plusSlides(n) {
-          showSlides(slideIndex += n);
+            showSlides(slideIndex += n);
         }
 
         function currentSlide(n) {
-          showSlides(slideIndex = n);
+            showSlides(slideIndex = n);
         }
 
         function showSlides(n) {
-          var i;
-          var slides = document.getElementsByClassName("mySlides");
-          var dots = document.getElementsByClassName("demo");
-          var captionText = document.getElementById("caption");
-          if (n > slides.length) {slideIndex = 1}
-          if (n < 1) {slideIndex = slides.length}
-          for (i = 0; i < slides.length; i++) {
-              slides[i].style.visibility = "hidden";
-          }
-          for (i = 0; i < dots.length; i++) {
-              dots[i].className = dots[i].className.replace(" active", "");
-          }
-          slides[slideIndex-1].style.visibility = "visible";
-          dots[slideIndex-1].className += " active";
-          captionText.innerHTML = dots[slideIndex-1].alt;
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var thumbs = document.getElementsByClassName("thumb");
+            var captionText = document.getElementById("caption");
+            
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            
+            // Hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            // Remove active class from all thumbnails
+            for (i = 0; i < thumbs.length; i++) {
+                thumbs[i].classList.remove("active-thumb");
+            }
+            
+            // Show current slide and activate current thumbnail
+            slides[slideIndex-1].style.display = "block";
+            thumbs[slideIndex-1].classList.add("active-thumb");
+            
+            // Update caption
+            captionText.innerHTML = thumbs[slideIndex-1].alt;
+            
+            // Position navigation buttons relative to the current slide
+            positionNavButtons();
         }
-        </script>
-
+        
+        function positionNavButtons() {
+            var currentSlide = document.querySelector('.mySlides[style*="display: block"]');
+            if (currentSlide) {
+                var slideHeight = currentSlide.offsetHeight;
+                var prevBtn = document.querySelector('.prev');
+                var nextBtn = document.querySelector('.next');
+                
+                // Position buttons at the vertical center of the current slide
+                prevBtn.style.top = (slideHeight / 2) + 'px';
+                nextBtn.style.top = (slideHeight / 2) + 'px';
+            }
+        }
+        
+        // Reposition buttons when window is resized
+        window.addEventListener('resize', positionNavButtons);
+    </script>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="../../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
 
 </body>
 

@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,18 +15,117 @@
 
     <!-- Custom CSS -->
     <link href="css/portfolio-item.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    
+    <style>
+        /* Custom styles for content layout - won't affect navbar */
+        .project-content {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .content-box {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .section-divider {
+            border-bottom: 1px solid #e0e0e0;
+            margin: 25px 0;
+            padding-bottom: 25px;
+        }
+        
+        .section-divider:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .project-description h3 {
+            color: #0066cc;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .project-description p {
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .page-header {
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .page-header h1 {
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .centered-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Gallery styles */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .gallery-item {
+            width: calc(33.333% - 20px);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 15px;
+            background-color: #fff;
+            text-align: center;
+            font-size: 14px;
+            color: #444;
+        }
+        
+        @media (max-width: 992px) {
+            .gallery-item {
+                width: calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .gallery-item {
+                width: 100%;
+            }
+        }
+    </style>
 
 </head>
 
 <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -62,11 +160,10 @@
 
     <!-- Page Content -->
     <div class="container">
-
         <!-- Portfolio Item Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Hacking Health: Shopify Hosted Hackathon
+                <h1 class="page-header">Victory at Shopify's Hacking Health Hackathon
                     <small></small>
                 </h1>
             </div>
@@ -75,119 +172,119 @@
 
         <!-- Portfolio Item Row -->
         <div class="row">
-
-            <div class="col-md-8">
-                <img class="img-responsive" src="images/team_working.jpg" alt="">
+            <div class="col-md-12 text-center">
+                <img class="img-responsive centered-image" src="images/teamottawa.jpg" alt="Team working on the project">
             </div>
-
-                <h3>Overview</h3>
-                <p>Our team won first place at the Hacking Health hackathon hosted by Shopify in Ottawa. The prize included flights, accommodations, and passes to pitch our product at the True North conference in Waterloo.</p>
-                <h3>The Hackathon</h3>
-                <p>The goal was to develop a solution addressing healthcare challenges like social isolation, connected care, or diagnostic efficiency within a weekend.</p>
-                <h3>Our Solution</h3>
-                <p>We built a system combining a wearable IMU device, an Android app, and a cloud-based analysis pipeline for real-time kinematic analysis. We had a neural network built with TensorFlow doing gait-health prediction in real time.</p>
-
-                <video width="1280" height="720" controls>
-                <source src="../../videos/healthmoves_voiceover.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-                </video>
-
-
-            <style>
-
-            div.gallery {
-              margin: 5px;
-              border: 1px solid #ccc;
-              float: left;
-              width: 500px;
-            }
-
-            div.gallery:hover {
-              border: 1px solid #777;
-            }
-
-            div.gallery img {
-              width: 100%;
-              height: 360px;
-            }
-
-            div.desc {
-              padding: 15px;
-              text-align: center;
-            }
-            </style>
-            </head>
-            <body>
-
-            <div class="gallery">
-              <a target="_blank" href="images/award.jpg">
-                <img src="images/award.jpg" alt="Cinque Terre" width="600" height="400">
-              </a>
-              <div class="desc">The team receiving our award at Shopify!</div>
+        </div>
+        
+        <div class="row project-content">
+            <div class="col-md-12">
+                <div class="content-box">
+                    <div class="project-description">
+                        <h3>Overview</h3>
+                        <p>Our team won first place at the Hacking Health hackathon hosted by Shopify in Ottawa. The prize included flights, accommodations, and passes to pitch our product at the True North conference in Waterloo.</p>
+                    </div>
+                    
+                    <div class="section-divider"></div>
+                    
+                    <div class="project-description">
+                        <h3>The Hackathon</h3>
+                        <p>The goal was to develop a solution addressing healthcare challenges like social isolation, connected care, or diagnostic efficiency within a weekend.</p>
+                    </div>
+                    
+                    <div class="section-divider"></div>
+                    
+                    <div class="project-description">
+                        <h3>Our Solution</h3>
+                        <p>We built a system combining a wearable IMU device, an Android app, and a cloud-based analysis pipeline for real-time kinematic analysis. We had a neural network built with TensorFlow doing gait-health prediction in real time.</p>
+                    </div>
+                </div>
             </div>
-
-            <div class="gallery">
-              <a target="_blank" href="images/device.jpg">
-                <img src="images/device.jpg" alt="Forest" width="600" height="400">
-              </a>
-              <div class="desc">Testing the system.</div>
+        </div>
+        
+        <!-- Gallery Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="page-header">Photos from the events</h3>
+                <div class="gallery-container">
+                    <div class="gallery-item">
+                        <a href="images/award.jpg" target="_blank">
+                            <img src="images/award.jpg" alt="Team receiving award at Shopify">
+                        </a>
+                        <div class="gallery-caption">The team receiving our award at Shopify!</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <a href="images/device.jpg" target="_blank">
+                            <img src="images/device.jpg" alt="Testing the system">
+                        </a>
+                        <div class="gallery-caption">Testing the system</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <a href="images/brokenbuilding.jpg" target="_blank">
+                            <img src="images/brokenbuilding.jpg" alt="Cool shot from Waterloo">
+                        </a>
+                        <div class="gallery-caption">Cool shot from Waterloo</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <a href="images/team_working.jpg" target="_blank">
+                            <img src="images/team_working.jpg" alt="Team photo in Ottawa">
+                        </a>
+                        <div class="gallery-caption">Team photo in Ottawa</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <a href="images/matt.jpg" target="_blank">
+                            <img src="images/matt.jpg" alt="Matt">
+                        </a>
+                        <div class="gallery-caption">Matt!</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <a href="images/john.jpg" target="_blank">
+                            <img src="images/john.jpg" alt="John being lurked upon">
+                        </a>
+                        <div class="gallery-caption">John being lurked upon</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <a href="images/quantum.jpg" target="_blank">
+                            <img src="images/quantum.jpg" alt="Quantum revolution presentation">
+                        </a>
+                        <div class="gallery-caption">Quantum revolution presentation</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <a href="images/strangeman.jpg" target="_blank">
+                            <img src="images/strangeman.jpg" alt="Art">
+                        </a>
+                        <div class="gallery-caption">Art</div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <a href="images/hook.jpg" target="_blank">
+                            <img src="images/hook.jpg" alt="More art">
+                        </a>
+                        <div class="gallery-caption">More art</div>
+                    </div>
+                </div>
             </div>
+        </div>
 
-            <div class="gallery">
-              <a target="_blank" href="images/brokenbuilding.jpg">
-                <img src="images/brokenbuilding.jpg" alt="Northern Lights" width="600" height="400">
-              </a>
-              <div class="desc">Cool shot from Waterloo.</div>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p></p>
+                </div>
             </div>
+            <!-- /.row -->
+        </footer>
 
-            <div class="gallery">
-              <a target="_blank" href="images/teamottawa.jpg">
-                <img src="images/teamottawa.jpg" alt="Mountains" width="600" height="400">
-              </a>
-              <div class="desc">Team photo in Ottawa.</div>
-            </div>
-
-            <div class="gallery">
-              <a target="_blank" href="images/matt.jpg">
-                <img src="images/matt.jpg" alt="Mountains" width="600" height="400">
-              </a>
-              <div class="desc">Matt!</div>
-            </div>
-
-
-            <div class="gallery">
-              <a target="_blank" href="images/john.jpg">
-                <img src="images/john.jpg" alt="Mountains" width="600" height="400">
-              </a>
-              <div class="desc">John being lurked upon.</div>
-            </div>
-
-
-            <div class="gallery">
-              <a target="_blank" href="images/quantum.jpg">
-                <img src="images/quantum.jpg" alt="Mountains" width="600" height="400">
-              </a>
-              <div class="desc">Quantum revolution presentation.</div>
-            </div>
-
-
-            <div class="gallery">
-              <a target="_blank" href="images/strangeman.jpg">
-                <img src="images/strangeman.jpg" alt="Mountains" width="600" height="400">
-              </a>
-              <div class="desc">Art.</div>
-            </div>
-
-
-            <div class="gallery">
-              <a target="_blank" href="images/hook.jpg">
-                <img src="images/hook.jpg" alt="Mountains" width="600" height="400">
-              </a>
-              <div class="desc">More art.</div>
-            </div>
-
-
-
+    </div>
+    <!-- /.container -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

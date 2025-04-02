@@ -16,6 +16,89 @@
 
     <!-- Custom CSS -->
     <link href="css/portfolio-item.css" rel="stylesheet">
+    
+    <style>
+        /* Custom styles for content layout - won't affect navbar */
+        .project-content {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .content-box {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .section-divider {
+            border-bottom: 1px solid #e0e0e0;
+            margin: 25px 0;
+            padding-bottom: 25px;
+        }
+        
+        .section-divider:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .project-description h3 {
+            color: #0066cc;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .project-description p {
+            line-height: 1.6;
+            color: #444;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tech-item {
+            background-color: #f8f9fa;
+            color: #0066cc;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .portfolio-item {
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .page-header {
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .page-header h1 {
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .centered-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 
 </head>
 
@@ -68,72 +151,42 @@
 
         <!-- Portfolio Item Row -->
         <div class="row">
-
-            <div class="col-md-8">
-                <img class="img-responsive" src="images/neuralnet.png" alt="">
+            <div class="col-md-12 text-center">
+                <img class="img-responsive centered-image" src="images/neuralnet.png" alt="Neural Network Visualization">
             </div>
-
-  
-            <h3>Project Description</h3>
-            <p>This project was inspired by curiosity about neural networks. Sometime in 2016, I decided to teach myself how gradient descent, back-propagation and basic neural networks work. I did this by implementing my own from scratch (using just the C++ standard library) and then convincing myself it works by training it on the MNIST dataset and having it accurately predict the digits in the test dataset.</p>
-			<h3>Gradient Descent</h3>
-			<p>Neural nets work by defining an error function that compares the actual output of the network to the
-			desired output of the network. The goal is to minimize this error function. Gradient descent works by findinding the partial derivative of the error function with respect to each variable that the error function depends on. 
-			These derivatives give the direction (sign) of the rate of change of the error function with respect to each variable, showing you whether you need to increase or decrease 
-			that variable in order to reduce the value of the error function. This increase or decrease is done in small increments, once each iteration, to avoid overshooting 
-			the adjustments. The complex part is that nested within the error function is the output of
-			the network, and the output of the network is itself a composite function consisting of the activation function of every node in the network
-			(which are all linked together and feeding forward into each other). So the error function is a composite of thousands to billions of functions, which makes 
-			finding it's partial derivatives tricky. In addition to that, you have to find the partial derivative of the error function once for every variable in that function (which includes every weight and
-			bias in every layer of the network). Only then can you update all the weights and biases in the correct direction, reducing the overall error for that input.
-			This whole procedure is repeated once for every training input. This allows us to "descend the gradient" of the error function. This is the fundamental algorithm that makes neural networks work, which as we know in 2025, has turned out to be a really powerful idea.</p>
-
         </div>
-		
-		<h3>Components</h3>
-                <ul>
-                    <li>C++</li>
-                    <li>Feed Forward Neural Network</li>
-                    <li>Gradient Descent</li>
-                    <li>MNIST Data Set</li>
-                </ul>
-        <!-- /.row -->
-
-        <!-- Related Projects Row -->
-        <div class="row">
-
-            <div class="col-lg-12">
-                <h3 class="page-header">More Pictures</h3>
+        
+        <div class="row project-content">
+            <div class="col-md-12">
+                <div class="content-box">
+                    <div class="project-description">
+                        <h3>Project Description</h3>
+                        <p>This project demonstrates my implementation of neural networks from first principles. In 2016, I developed a neural network from scratch using C++ standard library components. The implementation was validated by successfully training on the MNIST dataset and achieving accurate digit recognition on the test set.</p>
+                    </div>
+                    
+                    <div class="section-divider"></div>
+                    
+                    <div class="project-description">
+                        <h3>Gradient Descent</h3>
+                        <p>Neural networks optimize performance by minimizing an error function that measures the difference between predicted and desired outputs. Gradient descent achieves this by calculating partial derivatives of the error function with respect to each network parameter (weights and biases). These derivatives indicate the direction and magnitude of parameter adjustments needed to reduce error.</p>
+                        
+                        <p>The computational challenge lies in the network's composite structure, where the error function depends on the outputs of all neurons, which are themselves functions of their inputs. This creates a complex chain of dependencies requiring careful calculation of derivatives through backpropagation. The algorithm iteratively adjusts parameters in small increments to avoid overshooting optimal values, repeating this process for each training example to gradually minimize overall error.</p>
+                    </div>
+                    
+                    <div class="section-divider"></div>
+                    
+                    <div class="project-description">
+                        <h3>Technology Stack</h3>
+                        <div class="tech-stack">
+                            <span class="tech-item">C++</span>
+                            <span class="tech-item">Backpropagation</span>
+                            <span class="tech-item">Gradient Descent</span>
+                            <span class="tech-item">MNIST Data Set</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="images/image_pages/pic1.html">
-                    <img class="img-responsive portfolio-item" src="images/alg_code_500.png" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="images/image_pages/pic2.html">
-                    <img class="img-responsive portfolio-item" src="images/alg_test_5000.png" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="images/image_pages/pic3.html">
-                    <img class="img-responsive portfolio-item" src="images/results_5000.png" alt="">
-                </a>
-            </div>
-
-            <div class="col-sm-3 col-xs-6">
-                <a href="images/image_pages/pic4.html">
-                    <img class="img-responsive portfolio-item" src="images/me_500x.jpg" alt="">
-                </a>
-            </div>
-
         </div>
-        <!-- /.row -->
-
-        <hr>
 
         <!-- Footer -->
         <footer>
